@@ -1,0 +1,6 @@
+.avatar {
+  /* border: var(--border-size-3) solid red; */
+  & .face {
+    border: var(--border-size-3) solid var(--red-6);
+  }
+}

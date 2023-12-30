@@ -1,0 +1,6 @@
+
+export enum INVITE_STATUS {
+  INVITED,
+  DECLINED,
+  ACCEPTED,
+}

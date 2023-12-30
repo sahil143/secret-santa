@@ -1,7 +1,8 @@
 import * as React from "react";
+import { Avatar } from "./components/avatar/Avatar";
 
 const App: React.FC = () => {
-  return <h1>Vite + React</h1>;
+  return <Avatar />;
 };
 
 export default App;
