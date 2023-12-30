@@ -15,8 +15,7 @@
 				"Prisma.prisma",
 				"dbaeumer.vscode-eslint",
 				"phoenisx.cssvar",
-				"ecmel.vscode-html-css",
-				"csstools.postcss"
+				"ecmel.vscode-html-css"
 			],
 			"settings": {
 				"editor.tabSize": 2,
@@ -29,13 +28,12 @@
 				  "editor.formatOnSave": true
 				},
 				"cssvar.files": [
-					"../node_modules/open-props/open-props.min.css"
+					"./node_modules/open-props/open-props.min.css"
 				],
-				"cssvar.ignore": [],
+				// "cssvar.ignore": [],
 				"cssvar.extensions": [
 					"css", "postcss", "jsx", "tsx"
-				],
-				"css.enabledLanguages": ["html", "jsx"]
+				]
 			}
 		}
 	}

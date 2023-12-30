@@ -1,6 +1,40 @@
 .avatar {
-  /* border: var(--border-size-3) solid red; */
-  & .face {
-    border: var(--border-size-3) solid var(--red-6);
+  --avatar-size: var(--size-9);
+  position: relative;
+  display: inline-block;
+
+
+
+  & > .height-width {
+    height: var(--avatar-size);
+    width: var(--avatar-size);
+  }
+
+  & > .green-background {
+    background-color: var(--green-7);
+  }
+
+  & > .initial {
+    text-align: center;
+    line-height: var(--avatar-size);
+    font-size: 2.5rem;
+    color: white;
+  }
+
+  & > .border-round {
+    border-radius: var(--radius-round);
+    border: var(--border-size-3) solid white;
+  }
+
+  & > .icon {
+    position: absolute;
+    top: 3.2rem;
+    left: 3.2rem;
+  }
+
+  & > .santa-hat {
+    position: absolute;
+    left: 1.5rem;
+    top: -1.1rem;
   }
 }
