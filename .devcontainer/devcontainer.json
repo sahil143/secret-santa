@@ -15,7 +15,9 @@
 				"Prisma.prisma",
 				"dbaeumer.vscode-eslint",
 				"phoenisx.cssvar",
-				"ecmel.vscode-html-css"
+				"ecmel.vscode-html-css",
+				"GraphQL.vscode-graphql",
+				"GraphQL.vscode-graphql-syntax"
 			],
 			"settings": {
 				"editor.tabSize": 2,
