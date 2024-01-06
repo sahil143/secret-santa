@@ -1,58 +1,69 @@
 // For format details, see https://aka.ms/devcontainer.json. For config options, see the
 // README at: https://github.com/devcontainers/templates/tree/main/src/javascript-node-postgres
 {
-	"name": "Node.js & PostgreSQL",
-	"dockerComposeFile": "docker-compose.yml",
-	"service": "app",
-	"workspaceFolder": "/workspaces/${localWorkspaceFolderBasename}",
-	"containerEnv": {
-		"DATABASE_URL": "postgres://postgres:postgres@db/postgres_secret_santa_dev"
-	  },
-	"customizations": {
-		"vscode": {
-			"extensions": [
-				"esbenp.prettier-vscode",
-				"Prisma.prisma",
-				"dbaeumer.vscode-eslint",
-				"phoenisx.cssvar",
-				"ecmel.vscode-html-css",
-				"GraphQL.vscode-graphql",
-				"GraphQL.vscode-graphql-syntax"
-			],
-			"settings": {
-				"editor.tabSize": 2,
-				"files.trimTrailingWhitespace": true,
-				"editor.formatOnSave": false,
-				"editor.codeActionsOnSave": {
-				  "source.fixAll.eslint": "explicit"
-				},
-				"[prisma]": {
-				  "editor.formatOnSave": true
-				},
-				"cssvar.files": [
-					"./node_modules/open-props/open-props.min.css"
-				],
-				// "cssvar.ignore": [],
-				"cssvar.extensions": [
-					"css", "postcss", "jsx", "tsx"
-				]
-			}
-		}
-	}
+  "name": "Node.js & PostgreSQL",
+  "dockerComposeFile": "docker-compose.yml",
+  "service": "app",
+  "workspaceFolder": "/workspaces/${localWorkspaceFolderBasename}",
+  "containerEnv": {
+    "DATABASE_URL": "postgres://postgres:postgres@db/postgres_secret_santa_dev"
+  },
+  "forwardPorts": [5432],
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "esbenp.prettier-vscode",
+        "Prisma.prisma",
+        "dbaeumer.vscode-eslint",
+        "phoenisx.cssvar",
+        "ecmel.vscode-html-css",
+        "GraphQL.vscode-graphql",
+        "GraphQL.vscode-graphql-syntax",
+        "mtxr.sqltools",
+        "mtxr.sqltools-driver-pg"
+      ],
+      "settings": {
+        "sqltools.connections": [
+          {
+            "name": "Dev Database",
+            "driver": "PostgreSQL",
+            "previewLimit": 50,
+            "server": "localhost",
+            "port": 5432,
+            "database": "postgres_secret_santa_dev",
+            "username": "postgres",
+            "password": "postgres"
+          }
+        ],
+        "editor.tabSize": 2,
+        "files.trimTrailingWhitespace": true,
+        "editor.formatOnSave": false,
+        "editor.codeActionsOnSave": {
+          "source.fixAll.eslint": "explicit"
+        },
+        "[prisma]": {
+          "editor.formatOnSave": true
+        },
+        "cssvar.files": ["./node_modules/open-props/open-props.min.css"],
+        // "cssvar.ignore": [],
+        "cssvar.extensions": ["css", "postcss", "jsx", "tsx"]
+      }
+    }
+  }
 
-	// Features to add to the dev container. More info: https://containers.dev/features.
-	// "features": {},
+  // Features to add to the dev container. More info: https://containers.dev/features.
+  // "features": {},
 
-	// Use 'forwardPorts' to make a list of ports inside the container available locally.
-	// This can be used to network with other containers or with the host.
-	// "forwardPorts": [3000, 5432],
+  // Use 'forwardPorts' to make a list of ports inside the container available locally.
+  // This can be used to network with other containers or with the host.
+  // "forwardPorts": [3000, 5432],
 
-	// Use 'postCreateCommand' to run commands after the container is created.
-	// "postCreateCommand": "yarn install",
+  // Use 'postCreateCommand' to run commands after the container is created.
+  // "postCreateCommand": "yarn install",
 
-	// Configure tool-specific properties.
-	// "customizations": {},
+  // Configure tool-specific properties.
+  // "customizations": {},
 
-	// Uncomment to connect as root instead. More info: https://aka.ms/dev-containers-non-root.
-	// "remoteUser": "root"
+  // Uncomment to connect as root instead. More info: https://aka.ms/dev-containers-non-root.
+  // "remoteUser": "root"
 }
