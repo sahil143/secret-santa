@@ -12,7 +12,7 @@ CREATE TABLE "User" (
     "name" TEXT NOT NULL,
     "avatar" TEXT NOT NULL,
     "createdAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
-    "updatedAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    "updatedAt" TIMESTAMP(3) NOT NULL,
     "role" "Role" NOT NULL,
 
     CONSTRAINT "User_pkey" PRIMARY KEY ("id")
@@ -36,7 +36,7 @@ CREATE TABLE "Event" (
     "name" TEXT NOT NULL,
     "date" TIMESTAMP(3) NOT NULL,
     "createdAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
-    "updatedAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    "updatedAt" TIMESTAMP(3) NOT NULL,
     "sendReminder" BOOLEAN NOT NULL,
     "owner" INTEGER NOT NULL,
 
@@ -50,7 +50,7 @@ CREATE TABLE "Pairing" (
     "santaId" INTEGER NOT NULL,
     "personId" INTEGER NOT NULL,
     "createdAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
-    "updatedAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    "updatedAt" TIMESTAMP(3) NOT NULL,
 
     CONSTRAINT "Pairing_pkey" PRIMARY KEY ("id")
 );
@@ -74,7 +74,7 @@ CREATE TABLE "WishList" (
     "url" TEXT NOT NULL,
     "userId" INTEGER NOT NULL,
     "createdAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
-    "updatedAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    "updatedAt" TIMESTAMP(3) NOT NULL,
     "order" INTEGER NOT NULL,
     "eventId" TEXT NOT NULL,
     "siteImage" TEXT NOT NULL,

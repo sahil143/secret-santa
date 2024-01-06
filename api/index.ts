@@ -1,15 +1,17 @@
 import { ApolloServer } from "@apollo/server";
 import { startStandaloneServer } from "@apollo/server/standalone";
 import { schema } from "./schema";
-import { context } from "./context";
+import { createContext } from "./context";
 
-const server = new ApolloServer({ schema });
+const start = async () => {
+  const server = new ApolloServer({ schema });
 
-const { url } = await startStandaloneServer(server, {
-  listen: { port: 3004 },
-  context: async () => {
-    return { ...context };
-  },
-});
+  const { url } = await startStandaloneServer(server, {
+    listen: { port: 3004 },
+    context: createContext,
+  });
 
-console.log(`Server started at ${url}`);
+  console.log(`Server started at ${url}`);
+};
+
+start();
