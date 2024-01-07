@@ -25,8 +25,7 @@ export const InviteQuery = extendType({
   definition(t) {
     t.nonNull.list.field("invites", {
       type: "Invite",
-      resolve(source, args, context, info) {
-        console.log("##############", source, args, context, info);
+      resolve() {
         return [
           {
             id: "ancd",

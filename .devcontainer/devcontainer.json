@@ -6,7 +6,7 @@
   "service": "app",
   "workspaceFolder": "/workspaces/${localWorkspaceFolderBasename}",
   "containerEnv": {
-    "DATABASE_URL": "postgres://postgres:postgres@db/postgres_secret_santa_dev"
+    "DATABASE_URL": "postgres://postgres:postgres@localhost:5432/postgres_secret_santa_dev?schema=public"
   },
   "forwardPorts": [5432],
   "customizations": {
@@ -20,7 +20,8 @@
         "GraphQL.vscode-graphql",
         "GraphQL.vscode-graphql-syntax",
         "mtxr.sqltools",
-        "mtxr.sqltools-driver-pg"
+        "mtxr.sqltools-driver-pg",
+        "ms-azuretools.vscode-docker"
       ],
       "settings": {
         "sqltools.connections": [
