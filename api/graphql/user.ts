@@ -1,4 +1,6 @@
-import { objectType } from "nexus";
+import { extendType, objectType } from "nexus";
+import { signUp } from "../user/signUp";
+import { userSignIn } from "../user/signIn";
 export const User = objectType({
   name: "User",
   definition(t) {
@@ -9,9 +11,9 @@ export const User = objectType({
     t.string("password", { description: "Password to login/signup" });
     t.string("name", { description: "name of the user" });
     t.string("avatar");
-    t.implements('timestampsObject');
+    t.implements("timestampsObject");
     t.field("role", {
-      type: 'Role',
+      type: "Role",
       description: "Role assigned to this user",
     });
     t.list.field("event", {
@@ -35,5 +37,26 @@ export const User = objectType({
     t.list.field("wishList", {
       type: "WishList",
     });
+    t.string("token");
   },
 });
+
+export const UserMutation = extendType({
+  type: "Mutation",
+  definition(t) {
+    signUp(t);
+    userSignIn(t);
+  },
+});
+
+export const UserQuery = extendType({
+  type: "Query",
+  definition(t) {
+    t.nonNull.list.field("getUser", {
+      type: "User",
+      async resolve (_, args, ctx) {
+        return await ctx.prisma.user.findMany();
+      }
+    })
+  },
+})

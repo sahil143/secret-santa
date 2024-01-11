@@ -12,10 +12,10 @@ model User {
   email          String
   password       String
   name           String
-  avatar         String
+  avatar         String?
   createdAt      DateTime   @default(now())
   updatedAt      DateTime   @updatedAt
-  role           Role
+  role           Role?
   event          Event?
   invite         Invite?
   person         Pairing[]  @relation("pairing_person")

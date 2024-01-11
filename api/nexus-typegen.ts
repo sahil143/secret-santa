@@ -70,6 +70,7 @@ export interface NexusGenObjects {
     user?: NexusGenRootTypes['User'] | null; // User
     userId?: number | null; // Int
   }
+  Mutation: {};
   Pairing: { // root type
     createdAt?: NexusGenScalars['DateTime'] | null; // DateTime
     event?: NexusGenRootTypes['Event'] | null; // Event
@@ -107,6 +108,7 @@ export interface NexusGenObjects {
     santa?: Array<NexusGenRootTypes['Pairing'] | null> | null; // [Pairing]
     thankYouToUser?: Array<NexusGenRootTypes['ThankYou'] | null> | null; // [ThankYou]
     thankYouUser?: Array<NexusGenRootTypes['ThankYou'] | null> | null; // [ThankYou]
+    token?: string | null; // String
     updatedAt?: NexusGenScalars['DateTime'] | null; // DateTime
     wishList?: Array<NexusGenRootTypes['WishList'] | null> | null; // [WishList]
   }
@@ -163,6 +165,10 @@ export interface NexusGenFieldTypes {
     user: NexusGenRootTypes['User'] | null; // User
     userId: number | null; // Int
   }
+  Mutation: { // field return type
+    signIn: NexusGenRootTypes['User']; // User!
+    signUp: NexusGenRootTypes['User']; // User!
+  }
   Pairing: { // field return type
     createdAt: NexusGenScalars['DateTime'] | null; // DateTime
     event: NexusGenRootTypes['Event'] | null; // Event
@@ -175,6 +181,7 @@ export interface NexusGenFieldTypes {
     updatedAt: NexusGenScalars['DateTime'] | null; // DateTime
   }
   Query: { // field return type
+    getUser: Array<NexusGenRootTypes['User'] | null>; // [User]!
     invites: Array<NexusGenRootTypes['Invite'] | null>; // [Invite]!
   }
   ThankYou: { // field return type
@@ -202,6 +209,7 @@ export interface NexusGenFieldTypes {
     santa: Array<NexusGenRootTypes['Pairing'] | null> | null; // [Pairing]
     thankYouToUser: Array<NexusGenRootTypes['ThankYou'] | null> | null; // [ThankYou]
     thankYouUser: Array<NexusGenRootTypes['ThankYou'] | null> | null; // [ThankYou]
+    token: string | null; // String
     updatedAt: NexusGenScalars['DateTime'] | null; // DateTime
     wishList: Array<NexusGenRootTypes['WishList'] | null> | null; // [WishList]
   }
@@ -251,6 +259,10 @@ export interface NexusGenFieldTypeNames {
     user: 'User'
     userId: 'Int'
   }
+  Mutation: { // field return type name
+    signIn: 'User'
+    signUp: 'User'
+  }
   Pairing: { // field return type name
     createdAt: 'DateTime'
     event: 'Event'
@@ -263,6 +275,7 @@ export interface NexusGenFieldTypeNames {
     updatedAt: 'DateTime'
   }
   Query: { // field return type name
+    getUser: 'User'
     invites: 'Invite'
   }
   ThankYou: { // field return type name
@@ -290,6 +303,7 @@ export interface NexusGenFieldTypeNames {
     santa: 'Pairing'
     thankYouToUser: 'ThankYou'
     thankYouUser: 'ThankYou'
+    token: 'String'
     updatedAt: 'DateTime'
     wishList: 'WishList'
   }
@@ -315,6 +329,17 @@ export interface NexusGenFieldTypeNames {
 }
 
 export interface NexusGenArgTypes {
+  Mutation: {
+    signIn: { // args
+      email: string; // String!
+      password: string; // String!
+    }
+    signUp: { // args
+      email: string; // String!
+      name: string; // String!
+      password: string; // String!
+    }
+  }
 }
 
 export interface NexusGenAbstractTypeMembers {

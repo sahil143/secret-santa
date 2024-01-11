@@ -37,6 +37,11 @@ type Invite {
   userId: Int
 }
 
+type Mutation {
+  signIn(email: String!, password: String!): User!
+  signUp(email: String!, name: String!, password: String!): User!
+}
+
 type Pairing implements timestampsObject {
   createdAt: DateTime
   event: Event
@@ -50,6 +55,7 @@ type Pairing implements timestampsObject {
 }
 
 type Query {
+  getUser: [User]!
   invites: [Invite]!
 }
 
@@ -100,6 +106,7 @@ type User implements timestampsObject {
   santa: [Pairing]
   thankYouToUser: [ThankYou]
   thankYouUser: [ThankYou]
+  token: String
   updatedAt: DateTime
   wishList: [WishList]
 }
