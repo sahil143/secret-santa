@@ -1,7 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { Avatar } from './Avatar';
 import { INVITE_STATUS } from '../../utils/const';
-import avatar from './avatar-05.png';
 
 const meta = {
   title: 'Example/Avatar',
@@ -30,15 +29,9 @@ export const InviteIcon: Story = {
   }
 };
 
-export const Image: Story = {
-  args: {
-    source: avatar,
-  }
-}
-
 export const SantaHat: Story = {
   args: {
-    source: avatar,
+    initials: 'S',
     isSanta: true,
   }
 }

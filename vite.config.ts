@@ -1,5 +1,6 @@
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react-swc";
+import { vanillaExtractPlugin } from '@vanilla-extract/vite-plugin';
 import postcssJitProps from "postcss-jit-props";
 import postcssNesting from "postcss-nesting";
 import path from "path";
@@ -22,5 +23,5 @@ export default defineConfig({
     },
   },
   assetsInclude: ["/sb-preview/runtime.js"],
-  plugins: [react()],
+  plugins: [react(), vanillaExtractPlugin()],
 });
